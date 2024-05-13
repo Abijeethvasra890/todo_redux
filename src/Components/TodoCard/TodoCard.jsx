@@ -5,6 +5,7 @@ import CompleteTodo from '../CompleteTodo/CompleteTodo';
 
 
 const TodoCard = ({ todo }) => {
+  //console.log(todo.complete);
   const cardClassName = `bg-white p-4 rounded-lg shadow-md ${todo.complete ? 'bg-green-200' : ''}`;
 
   return (
