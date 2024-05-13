@@ -17,11 +17,9 @@ const AddTodo = () => {
     };
   
     const handleAddTodo = () => {
-      // Dispatch addTodo action with the input values
       const id = uuidv4();
       let complete  = false;
       dispatch(addTodo({ id, name, description, complete }));
-      // Clear input fields after adding todo
       setName('');
       setDescription('');
     };
@@ -45,7 +43,7 @@ const AddTodo = () => {
             />
         </div>
         <button
-        className="bg-black hover:bg-black text-white font-bold py-2 px-4 rounded" 
+        className="bg-neutral-600 hover:bg-black text-white font-bold py-2 px-4 rounded" 
         onClick={handleAddTodo}>Add Todo</button>
     </div>
   )

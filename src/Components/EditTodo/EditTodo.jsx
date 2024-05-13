@@ -44,9 +44,9 @@ const EditTodo = ({ todo }) => {
         isOpen={isModalOpen}
         onRequestClose={handleCloseModal}
         contentLabel="Edit Todo Modal"
-        className="bg-white w-11/12 p-10 mx-auto my-10 flex flex-col items-center"
+        className="bg-white w-6/12 p-10 mx-auto my-10 flex flex-col items-center"
       >
-        <h2 className='text-xl font-semibold mb-2'>Edit Todo</h2>
+        <h2 className='text-xl font-semibold mb-10'>Edit Todo</h2>
         <label>Todo Name: </label>
         <input
           type="text"
