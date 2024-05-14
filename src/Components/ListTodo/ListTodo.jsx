@@ -1,10 +1,8 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 import TodoCard from '../TodoCard/TodoCard';
 
-const ListTodo = () => {
-  const todos = useSelector((state) => state.todos.todos);
-
+const ListTodo = ({todos}) => {
+  //console.log(todos);
   return (
     <div className="bg-neutral-700 p-5 text-white h-screen w-full">
       <h2 className="text-xl font-bold mb-4">List of Todos</h2>

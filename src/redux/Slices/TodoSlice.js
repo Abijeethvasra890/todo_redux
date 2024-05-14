@@ -16,11 +16,13 @@ const TodoSlice = createSlice({
             state.todos = state.todos.filter(todo => todo.id !== todoId);
         },
         editTodo(state, action) {
-            const { id, name, description } = action.payload;
+            console.log(action.payload);
+            const { id, name, description, dueDate } = action.payload;
             const todoToEdit = state.todos.find(todo => todo.id === id);
             if (todoToEdit) {
               todoToEdit.name = name;
               todoToEdit.description = description;
+              todoToEdit.dueDate = dueDate;
             }
         },
         toggleTodoComplete(state, action) {
