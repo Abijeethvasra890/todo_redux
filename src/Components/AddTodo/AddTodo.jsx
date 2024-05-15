@@ -42,7 +42,7 @@ const AddTodo = () => {
   return (
     <div className='md:flex flex-wrap justify-around bg-amber-950 py-10'>  
       <div className='flex flex-col'>
-        <div className='flex flex-col justify-center items-center sm:flex-col md:flex-row justify-center gap-5'>
+        <div className='flex flex-col justify-center items-center sm:flex-col md:flex-row gap-5'>
           <input
             className="py-3 px-4 w-9/12 md:w-52 border-2 border-gray-200 rounded-lg text-md"
             type='text'
@@ -80,7 +80,7 @@ const AddTodo = () => {
       </div>
       <div className='flex justify-center items-center mt-5'>
         <button
-          className="bg-neutral-600 hover:bg-black text-white font-bold py-2 px-4 rounded h-12" 
+          className="bg-black hover:bg-neutral-600 text-white font-bold py-2 px-4 rounded h-12" 
           onClick={handleAddTodo}
         >
           Add Todo

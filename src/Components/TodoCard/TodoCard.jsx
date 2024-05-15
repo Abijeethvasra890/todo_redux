@@ -8,7 +8,7 @@ const TodoCard = ({ todo }) => {
   //console.log(todo.complete);
   let bgcard;
   if(todo.priority == "P0") bgcard = 'bg-amber-500';
-  else if(todo.priority == "P1")  bgcard = 'bg-amber-400';
+  else if(todo.priority == "P1")  bgcard = 'bg-amber-300';
   else bgcard = 'bg-amber-200';
   const cardClassName = `p-4 rounded-lg shadow-md ${todo.complete ? 'bg-green-200' : bgcard}`;
 

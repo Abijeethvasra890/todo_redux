@@ -9,13 +9,22 @@ const Navbar = () => {
       </Link>
       {/* Menu items */}
       <div className="flex">
-        <Link to="/">
+        <Link
+          to="/"
+          className={location.pathname === '/' ? 'text-yellow-500' : 'text-white'}
+        >
           <div className='text-l font-serif mx-5 px-2 py-2'>All Todos</div>
         </Link>
-        <Link to="/pending">
+        <Link
+          to="/pending"
+          className={location.pathname === '/pending' ? 'text-yellow-500' : 'text-white'}
+        >
           <div className='text-l font-serif mx-5 px-2 py-2'>Pending Todos</div>
         </Link>
-        <Link to="/completed">
+        <Link
+          to="/completed"
+          className={location.pathname === '/completed' ? 'text-yellow-500' : 'text-white'}
+        >
           <div className='text-l font-serif mx-5 px-2 py-2'>Completed Todos</div>
         </Link>
       </div>
