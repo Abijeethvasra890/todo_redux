@@ -1,9 +1,13 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
-import { addTodo } from '../../redux/Slices/TodoSlice';
+import { addTodo, addTodoAsync } from '../../redux/Slices/TodoSlice';
 import { v4 as uuidv4 } from 'uuid';
+import { Firestore, doc, setDoc } from 'firebase/firestore';
+import { auth, db } from '../../Firebase/firebase_config';
+import firebase from 'firebase/compat/app';
 
 const AddTodo = () => {
+   
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
     const [dueDate, setDueDate] = useState('');
@@ -28,11 +32,11 @@ const AddTodo = () => {
     };
 
   
-    const handleAddTodo = () => {
+    const handleAddTodo = async() => {
       const id = uuidv4();
       let complete  = false;
       const createdDate = new Date().toISOString().split('T')[0];
-      dispatch(addTodo({ id, name, description, complete, dueDate, createdDate, priority }));
+      dispatch(addTodoAsync({ id, name, description, complete, dueDate, createdDate, priority }));
       setName('');
       setDescription('');
       setDueDate('');

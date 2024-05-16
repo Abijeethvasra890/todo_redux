@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import Modal from 'react-modal';
-import { editTodo } from '../../redux/Slices/TodoSlice';
+import { editTodo, updateTodoAsync } from '../../redux/Slices/TodoSlice';
  
  
 const EditTodo = ({ todo }) => {
@@ -33,7 +33,7 @@ const EditTodo = ({ todo }) => {
 
   const handleSaveChanges = () => {
     // Dispatch editTodo action with the updated todo data
-    dispatch(editTodo({ id: todo.id, name: editedName, description: editedDescription, dueDate: editedDueDate }));
+    dispatch(updateTodoAsync(todo.id,{ id: todo.id, name: editedName, description: editedDescription, dueDate: editedDueDate }));
     setIsModalOpen(false);
   };
  

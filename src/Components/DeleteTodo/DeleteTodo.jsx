@@ -1,11 +1,11 @@
 import React from 'react'
 import { useDispatch } from 'react-redux';
-import { deleteTodo } from '../../redux/Slices/TodoSlice';
+import { deleteTodo, deleteTodoAsync } from '../../redux/Slices/TodoSlice';
 
 const DeleteTodo = ({ todoId }) => {
     const dispatch = useDispatch();
     const handleDeleteTodo = () => {
-        dispatch(deleteTodo(todoId));
+        dispatch(deleteTodoAsync(todoId));
     };
       
 
