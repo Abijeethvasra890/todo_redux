@@ -17,8 +17,17 @@ const AllTodos = () => {
   return (
     <>
         <Navbar />
-        <AddTodo />
-        <ListTodo todos={todos}/>
+        <div className='md:flex'
+        style={{
+          backgroundImage: 'url(https://wallpapercave.com/wp/wp12426117.jpg)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          overflowX: 'auto',
+        }}
+        >
+          <AddTodo />
+          <ListTodo todos={todos}/>
+        </div>
     </>
   )
 }

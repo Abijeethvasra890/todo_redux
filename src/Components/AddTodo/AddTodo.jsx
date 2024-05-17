@@ -44,9 +44,9 @@ const AddTodo = () => {
     };
 
   return (
-    <div className='md:flex flex-wrap justify-around bg-amber-950 py-10'>  
+    <div className='bg-slate-200 rounded bg-opacity-40 items-center flex flex-col md:mt-10 flex-wrap h-4/5 justify-center py-5 px-2 mx-5'>
       <div className='flex flex-col'>
-        <div className='flex flex-col justify-center items-center sm:flex-col md:flex-row gap-5'>
+        <div className='flex flex-col justify-center items-center sm:flex-col md:flex-col gap-2'>
           <input
             className="py-3 px-4 w-9/12 md:w-52 border-2 border-gray-200 rounded-lg text-md"
             type='text'
@@ -71,12 +71,12 @@ const AddTodo = () => {
             <option value="P2">P2</option>
           </select>
         </div>
-        <div className='mt-5 flex flex-wrap justify-center'>
+        <div className='flex flex-wrap justify-center ml-5'>
           <textarea
             value={description}
             onChange={handleDescriptionChange}
             placeholder='Description'
-            className="py-3 px-4 w-9/12 md:w-96 border-2 border-gray-200 rounded-lg text-md"
+            className="py-3 px-3 w-full md:w-72 border-2 border-gray-200 rounded-lg text-md mt-5"
             rows={4}
           />
         </div>
@@ -84,7 +84,7 @@ const AddTodo = () => {
       </div>
       <div className='flex justify-center items-center mt-5'>
         <button
-          className="bg-black hover:bg-neutral-600 text-white font-bold py-2 px-4 rounded h-12" 
+          className="bg-neutral-600 hover:bg-neutral-600 text-white font-bold py-2 px-4 rounded h-12" 
           onClick={handleAddTodo}
         >
           Add Todo

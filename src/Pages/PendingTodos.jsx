@@ -17,9 +17,18 @@ const PendingTodos = () => {
   return (
     <>
         <Navbar />
+        <div 
+        style={{
+          backgroundImage: 'url(https://wallpapercave.com/wp/wp12426117.jpg)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          overflowX: 'auto',
+        }}
+        >
         <SortTodos todos={pendingTodos} setTodos={setPendingTodos}/>
         <FilterTodo todos={pendingTodos} setTodos={setPendingTodos}/>
         <ListTodo todos={pendingTodos}/>
+        </div>
     </>
   )
 }

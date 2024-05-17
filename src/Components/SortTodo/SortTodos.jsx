@@ -13,15 +13,17 @@ const SortTodos = ({todos, setTodos}) => {
     }
       
   return (
-    <div className='md:flex flex-wrap gap-5 justify-center bg-amber-950 py-3'>
-      <button
-          className='bg-black hover:bg-neutral-600 text-white font-bold py-2 px-4 rounded'
-          onClick={handleSortByPriority}>Sort by Priority
-      </button>
-      <button
-          className='bg-black hover:bg-neutral-600 text-white font-bold py-2 px-4 rounded'
-          onClick={handleSortByDate}>Sort by Date
-      </button>
+    <div className='flex rounded items-center justify-center mt-5 mb-5'>
+      <div className='bg-opacity-60  justify-center md:flex gap-5 py-3 w-96'>
+        <button
+            className='bg-neutral-600 hover:bg-neutral-400 text-white font-bold py-2 px-4 rounded'
+            onClick={handleSortByPriority}>Sort by Priority
+        </button>
+        <button
+            className='bg-neutral-600 hover:bg-neutral-400 text-white font-bold py-2 px-4 rounded'
+            onClick={handleSortByDate}>Sort by Date
+        </button>
+      </div>
     </div>
   )
 }

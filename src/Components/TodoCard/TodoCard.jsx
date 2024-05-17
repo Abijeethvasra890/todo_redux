@@ -23,7 +23,7 @@ const TodoCard = ({ todo }) => {
         </div>
         <div><CompleteTodo todo={todo}/></div>
       </div>
-      <div className='flex flex-col sm:flex-row justify-around'>
+      <div className='flex flex-col sm:flex-row justify-around md:gap-2'>
         <EditTodo todo={todo}/>
         <DeleteTodo todoId={todo.id}/>
       </div>

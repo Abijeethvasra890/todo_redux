@@ -22,7 +22,7 @@ const FilterTodo = ({todos, setTodos}) => {
     
 
     return (
-        <div className='md:flex flex-wrap gap-5 justify-center bg-amber-950 py-5'>
+        <div className='md:flex flex-wrap gap-5 justify-center py-5'>
             <div className="flex flex-col mr-5">
                 <label htmlFor="fromDate" className="text-white mb-2">From Date:</label>
                 <input
@@ -47,11 +47,11 @@ const FilterTodo = ({todos, setTodos}) => {
             </div>
         
                 <button
-                    className='bg-black hover:bg-neutral-600 text-white font-bold py-2 px-4 rounded self-end mt-4'
+                    className='bg-neutral-600 hover:bg-neutral-400 text-white font-bold py-2 px-4 rounded self-end mt-4'
                     onClick={handleFilterByDate}>Filter by Date
                 </button>
                 <button
-                    className='bg-black hover:bg-neutral-600 text-white font-bold py-2 px-4 rounded self-end mt-4'
+                    className='bg-neutral-600 hover:bg-neutral-400 text-white font-bold py-2 px-4 rounded self-end mt-4'
                     onClick={handleResetFilter}>Reset Filter
                 </button>
             

@@ -15,8 +15,17 @@ const CompletedTodos = () => {
  return (
     <>
         <Navbar />
+        <div 
+        style={{
+          backgroundImage: 'url(https://wallpapercave.com/wp/wp12426117.jpg)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          overflowX: 'auto',
+        }}
+        >
         <SortTodos todos={completedTodos} setTodos={setCompletedTodos}/>
         <ListTodo todos={completedTodos}/>
+        </div>
     </>
   )
 }
