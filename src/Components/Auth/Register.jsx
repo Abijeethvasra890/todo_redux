@@ -50,7 +50,7 @@ const Register = () => {
                 <button 
                     className="bg-neutral-600 hover:bg-neutral-700 text-white font-bold py-2 px-4 rounded w-56 mb-3 mr-3"
                     onClick={handleRegister}>Register and Sign In</button>
-                    <p className='text-white'>Go back to login? <Link to='/signin'>Login</Link></p>
+                    <p className='text-white'>Go back to login? <Link to='/'>Login</Link></p>
             </div>
         </div>
     </div>
