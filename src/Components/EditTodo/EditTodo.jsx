@@ -33,7 +33,7 @@ const EditTodo = ({ todo }) => {
 
   const handleSaveChanges = () => {
     // Dispatch editTodo action with the updated todo data
-    dispatch(updateTodoAsync(todo.id,{ id: todo.id, name: editedName, description: editedDescription, dueDate: editedDueDate }));
+    dispatch(updateTodoAsync(todo.id,{ name: editedName, description: editedDescription, dueDate: editedDueDate }));
     setIsModalOpen(false);
   };
  

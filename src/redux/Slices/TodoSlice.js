@@ -18,19 +18,19 @@ export const fetchTodosAsync = () => async (dispatch) => {
     }
 };
 
-export const addTodoAsync = (todoData) => async (dispatch, getState) => {
+export const addTodoAsync = (todoData) => async (dispatch) => {
     try {
-        console.log("AddTodoAsync");
+        //console.log("AddTodoAsync");
         const userId = auth.currentUser.uid;
-        console.log(userId);
-        await addTodoForUser(userId, todoData);
+       // console.log(userId);
+        todoData = await addTodoForUser(userId, todoData);
         dispatch(addTodo(todoData));
     } catch (error) {
         dispatch(todoError(error.message));
     }
 };
 
-export const deleteTodoAsync = (todoId) => async (dispatch, getState) => {
+export const deleteTodoAsync = (todoId) => async (dispatch) => {
     try {
         const userId = auth.currentUser.uid;
         await deleteTodoForUser(userId, todoId);
@@ -40,11 +40,26 @@ export const deleteTodoAsync = (todoId) => async (dispatch, getState) => {
     }
 };
 
-export const updateTodoAsync = (todoId, updatedTodoData) => async (dispatch, getState) => {
+export const updateTodoAsync = (todoId, updatedTodoData) => async (dispatch) => {
     try {
         const userId = auth.currentUser.uid;
         await updateTodoForUser(userId, todoId, updatedTodoData);
         dispatch(editTodo({ id: todoId, ...updatedTodoData }));
+    } catch (error) {
+        dispatch(todoError(error.message));
+    }
+};
+
+export const toggleTodoCompleteAsync = (todoId, updatedTodoData) => async (dispatch) => {
+    try {
+        //console.log("todo Slice");
+        const userId = auth.currentUser.uid;
+       // console.log(todoId);
+        updatedTodoData = { ...updatedTodoData, complete: !updatedTodoData.complete };
+       // console.log(updatedTodoData.complete);
+        await updateTodoForUser(userId, todoId, updatedTodoData);
+        dispatch(editTodo({ id: todoId, ...updatedTodoData }));
+        
     } catch (error) {
         dispatch(todoError(error.message));
     }
@@ -84,9 +99,12 @@ const TodoSlice = createSlice({
             state.todos = action.payload;
             state.status = 'succeeded';
         },
+        clearTodos: (state) => {
+            state.todos = [];
+        }
     },
 });
 
-export const { addTodo, deleteTodo, editTodo, toggleTodoComplete, todoError, setTodos } = TodoSlice.actions;
+export const { addTodo, deleteTodo, editTodo, toggleTodoComplete, todoError, setTodos, clearTodos } = TodoSlice.actions;
 
 export default TodoSlice.reducer;

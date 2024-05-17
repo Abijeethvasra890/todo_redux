@@ -1,38 +1,24 @@
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth';
+import {signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
 import React, { useState } from 'react'
 import { auth, db, googleProvider } from '../../Firebase/firebase_config';
 import Navbar from '../Navbar/Navbar';
-import { addDoc, collection, doc, setDoc } from 'firebase/firestore';
-import { Link } from 'react-router-dom';
-import Register from './Register';
-
-
-export const handleSignOut = async() => {
-    try{
-        await signOut(auth);
-        alert("User Signed Out");
-    }catch(err){
-        alert(err);
-    }
-}
+import { doc, setDoc } from 'firebase/firestore';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Auth = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    console.log(auth?.currentUser?.email);
-
-   
-
+    const navigate = useNavigate();
     const handleSignIn = async() =>{
         try{
             await signInWithEmailAndPassword(auth, email, password);
-            alert("User Signed In");
-            console.log(auth?.currentUser?.uid);
+           // alert("User Signed In");
+           // console.log(auth?.currentUser?.uid);
+            navigate("/");
         }catch(err){
             alert(err.message);
         }
-        
     }
 
     const handleSignInGoogle = async() =>{
@@ -44,7 +30,8 @@ const Auth = () => {
                 photoURL: user.photoURL,
             };
             await setDoc(doc(db,"users", user.uid), userData);
-            alert("User Signed In");
+           // alert("User Signed In");
+            navigate("/");
         }catch(err){
             alert(err);
         }
@@ -88,4 +75,4 @@ const Auth = () => {
   )
 }
 
-export default Auth
+export default Auth;

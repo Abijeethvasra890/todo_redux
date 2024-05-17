@@ -1,12 +1,13 @@
 import React from 'react'
 import { useDispatch } from 'react-redux';
-import { toggleTodoComplete } from '../../redux/Slices/TodoSlice';
+import { toggleTodoComplete, toggleTodoCompleteAsync } from '../../redux/Slices/TodoSlice';
 
 const CompleteTodo = ({todo}) => {
     const dispatch = useDispatch();
-
-    const handleCheckboxChange = () => {
-        dispatch(toggleTodoComplete(todo.id));
+    const handleCheckboxChange = () =>{
+        //console.log("Complete Todo");
+        dispatch(toggleTodoCompleteAsync(todo.id,todo));
+       
     };
     return (
         <input 
@@ -17,4 +18,4 @@ const CompleteTodo = ({todo}) => {
     )
 }
 
-export default CompleteTodo
+export default CompleteTodo;

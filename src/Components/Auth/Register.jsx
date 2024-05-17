@@ -3,18 +3,19 @@ import Navbar from '../Navbar/Navbar';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { doc, setDoc } from 'firebase/firestore';
 import { auth, db } from '../../Firebase/firebase_config';
+import { useNavigate } from 'react-router';
 
 const Register = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    
+    const navigate = useNavigate();
     const handleRegister = async() =>{
         try{
             const {user} = await createUserWithEmailAndPassword(auth, email, password);
             const userData = {email, password};
             await setDoc(doc(db,"users", user.uid), userData);
             alert("User Registered");
-            console.log(auth?.currentUser?.uid);
+            navigate("/");
         }catch(err){
             alert(err.message);
         }
@@ -41,7 +42,7 @@ const Register = () => {
             <div className='flex flex-col'> 
                 <button 
                     className="bg-black hover:bg-neutral-700 text-white font-bold py-2 px-4 rounded w-56 mb-3 mr-3"
-                    onClick={handleRegister}>Register</button>
+                    onClick={handleRegister}>Register and Sign In</button>
             </div>
         </div>
     </div>

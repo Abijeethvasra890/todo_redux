@@ -36,7 +36,7 @@ const AddTodo = () => {
       const id = uuidv4();
       let complete  = false;
       const createdDate = new Date().toISOString().split('T')[0];
-      dispatch(addTodoAsync({ id, name, description, complete, dueDate, createdDate, priority }));
+      dispatch(addTodoAsync({name, description, complete, dueDate, createdDate, priority }));
       setName('');
       setDescription('');
       setDueDate('');

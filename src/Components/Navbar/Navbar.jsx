@@ -1,17 +1,31 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { auth } from '../../Firebase/firebase_config';
-import { handleSignOut } from '../Auth/Auth';
+import { useDispatch } from 'react-redux';
+import { signOut } from 'firebase/auth';
+import { clearTodos } from '../../redux/Slices/TodoSlice';
 
 const Navbar = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   useEffect(()=>{
     const checkSignIn = auth.onAuthStateChanged((user) => {
       setIsLoggedIn(!!user);
     });
     return () => checkSignIn();
   }, [auth.currentUser]);
+
+   const handleSignOut = async() => {
+    try{
+        await signOut(auth);
+        dispatch(clearTodos());
+       // alert("User Signed Out");
+       navigate("/signin");
+    }catch(err){
+        alert(err);
+    }
+}
 
   return (
     <div className='bg-black font-semibold italic text-white h-12 flex items-center justify-between'>
