@@ -15,8 +15,8 @@ const Register = () => {
             const {user} = await createUserWithEmailAndPassword(auth, email, password);
             const userData = {email, password};
             await setDoc(doc(db,"users", user.uid), userData);
-            alert("User Registered");
-            navigate("/");
+            //alert("User Registered");
+            navigate("/alltodos");
         }catch(err){
             alert(err.message);
         }

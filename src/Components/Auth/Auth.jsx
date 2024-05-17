@@ -15,7 +15,7 @@ const Auth = () => {
             await signInWithEmailAndPassword(auth, email, password);
            // alert("User Signed In");
            // console.log(auth?.currentUser?.uid);
-            navigate("/");
+            navigate("/alltodos");
         }catch(err){
             alert(err.message);
         }
@@ -31,7 +31,7 @@ const Auth = () => {
             };
             await setDoc(doc(db,"users", user.uid), userData);
            // alert("User Signed In");
-            navigate("/");
+            navigate("/alltodos");
         }catch(err){
             alert(err);
         }

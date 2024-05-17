@@ -14,10 +14,10 @@ function App() {
     <>
     <Provider store={store}>
       <Routes>
-        <Route exact path="/" element={<AllTodos />} />
+        <Route path="/alltodos" element={<AllTodos />} />
         <Route path="/completed" element={<CompletedTodos />} />
         <Route path="/pending" element={<PendingTodos />} />
-        <Route path="/signin" element={<Auth />} />
+        <Route exact path="/" element={<Auth />} />
         <Route path="/register" element={<Register />} />
       </Routes>  
     </Provider>

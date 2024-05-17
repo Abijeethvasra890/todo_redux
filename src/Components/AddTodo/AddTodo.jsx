@@ -33,29 +33,33 @@ const AddTodo = () => {
 
   
     const handleAddTodo = async() => {
-      const id = uuidv4();
-      let complete  = false;
-      const createdDate = new Date().toISOString().split('T')[0];
-      dispatch(addTodoAsync({name, description, complete, dueDate, createdDate, priority }));
-      setName('');
-      setDescription('');
-      setDueDate('');
-      setPriority('P0');
+      if(auth.currentUser == null){
+        alert("Please Sign in to Add Todos");
+      }else{
+        const id = uuidv4();
+        let complete  = false;
+        const createdDate = new Date().toISOString().split('T')[0];
+        dispatch(addTodoAsync({name, description, complete, dueDate, createdDate, priority }));
+        setName('');
+        setDescription('');
+        setDueDate('');
+        setPriority('P0');
+      }
     };
 
   return (
-    <div className='bg-slate-200 rounded bg-opacity-40 items-center flex flex-col md:mt-10 flex-wrap h-4/5 justify-center py-5 px-2 mx-5'>
+    <div className='bg-slate-200 rounded bg-opacity-20 items-center flex flex-col w-10/12 md:mt-10 md:w-4/12 flex-wrap h-4/5 justify-center py-5 px-2 mx-5'>
       <div className='flex flex-col'>
-        <div className='flex flex-col justify-center items-center sm:flex-col md:flex-col gap-2'>
+        <div className='flex flex-col items-center sm:flex-col md:flex-col gap-2'>
           <input
-            className="py-3 px-4 w-9/12 md:w-52 border-2 border-gray-200 rounded-lg text-md"
+            className="py-3 px-4 w-11/12 md:w-52 border-2 border-gray-200 rounded-lg text-md"
             type='text'
             placeholder='Todo Name'
             value={name}
             onChange={handleNameChange}
           />
           <input
-            className="py-3 px-4 w-9/12 md:w-52 border-2 border-gray-200 rounded-lg text-md"
+            className="py-3 px-4 w-11/12 md:w-52 border-2 border-gray-200 rounded-lg text-md"
             type='date'
             placeholder='Todo Date'
             value={dueDate}
@@ -64,19 +68,19 @@ const AddTodo = () => {
           <select
             value={priority}
             onChange={handlePriorityChange}
-            className="py-3 w-9/12 md:w-52 px-4 border-2 border-gray-200 rounded-lg text-md"
+            className="py-3 w-11/12 md:w-52 px-4 border-2 border-gray-200 rounded-lg text-md"
           >
             <option value="P0">P0</option>
             <option value="P1">P1</option>
             <option value="P2">P2</option>
           </select>
         </div>
-        <div className='flex flex-wrap justify-center ml-5'>
+        <div className='flex flex-wrap justify-center'>
           <textarea
             value={description}
             onChange={handleDescriptionChange}
             placeholder='Description'
-            className="py-3 px-3 w-full md:w-72 border-2 border-gray-200 rounded-lg text-md mt-5"
+            className="py-3 px-3 w-full md:w-52 border-2 border-gray-200 rounded-lg text-md mt-5"
             rows={4}
           />
         </div>

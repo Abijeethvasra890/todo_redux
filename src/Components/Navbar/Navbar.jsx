@@ -24,7 +24,7 @@ const Navbar = () => {
     try {
       await signOut(auth);
       dispatch(clearTodos());
-      navigate("/signin");
+      navigate("/");
     } catch (err) {
       alert(err);
     }
@@ -52,7 +52,7 @@ const Navbar = () => {
       {/* Menu items */}
       <div className={`flex ${isMobile ? 'flex-col' : 'flex-row'} ${isMobile && !isMenuOpen ? 'hidden' : 'block'} w-full lg:w-auto`}>
         <Link
-          to="/"
+          to="/alltodos"
           className={location.pathname === '/' ? 'text-yellow-500' : 'text-white'}
           onClick={() => isMobile && setIsMenuOpen(false)}
         >
@@ -73,7 +73,7 @@ const Navbar = () => {
           <div className='text-l font-serif mx-5 px-2 py-2'>Completed Todos</div>
         </Link>
         {!isLoggedIn && <Link
-          to="/signin"
+          to="/"
           className={location.pathname === '/signin' ? 'text-yellow-500' : 'text-white'}
           onClick={() => isMobile && setIsMenuOpen(false)}
         >
