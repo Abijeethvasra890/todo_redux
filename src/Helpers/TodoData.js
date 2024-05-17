@@ -46,7 +46,7 @@ export const deleteTodoForUser = async (uid, todoId) => {
     try {
         const todoRef = doc(db, `users/${uid}/todos`, todoId);
         await deleteDoc(todoRef);
-        alert("Todo deleted successfully");
+        //alert("Todo deleted successfully");
     } catch (error) {
         alert("Error deleting todo: " + error.message);
     }

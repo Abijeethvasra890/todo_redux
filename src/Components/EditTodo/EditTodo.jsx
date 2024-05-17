@@ -49,7 +49,7 @@ const EditTodo = ({ todo }) => {
         isOpen={isModalOpen}
         onRequestClose={handleCloseModal}
         contentLabel="Edit Todo Modal"
-        className="bg-white md:w-6/12 sm:w-full p-10 mx-auto my-10 flex flex-col items-center"
+        className="bg-neutral-400 md:w-6/12 sm:w-full p-10 mx-auto my-10 flex flex-col items-center"
       >
         <h2 className='text-xl font-semibold mb-10'>Edit Todo</h2>
         <label>Todo Name: </label>
@@ -77,13 +77,13 @@ const EditTodo = ({ todo }) => {
         <div className="mt-4">
           <button
             onClick={handleSaveChanges}
-            className="bg-green-800 hover:bg-black text-white font-bold py-2 px-4 rounded mr-4"
+            className="bg-green-600 hover:bg-black text-white font-bold py-2 px-4 rounded mr-4"
           >
             Save Changes
           </button>
           <button
             onClick={handleCloseModal}
-            className="bg-red-800 hover:bg-black text-white font-bold py-2 px-4 rounded"
+            className="bg-red-600 hover:bg-black text-white font-bold py-2 px-4 rounded"
           >
             Cancel
           </button>

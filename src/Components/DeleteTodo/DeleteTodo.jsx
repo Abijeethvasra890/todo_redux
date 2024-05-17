@@ -11,7 +11,7 @@ const DeleteTodo = ({ todoId }) => {
 
   return (
     <button
-        className="bg-red-900 hover:bg-black text-white font-bold py-2 px-4 rounded mt-4" 
+        className="bg-red-900 hover:bg-black text-white font-bold py-2 px-4 rounded mt-4"  
         onClick={handleDeleteTodo}
         >
         Delete Todo
