@@ -37,7 +37,7 @@ const Navbar = () => {
   return (
     <div className='bg-black font-semibold italic text-white h-auto flex items-center justify-between'>
       <div className='flex items-center'>
-        <Link to="/">
+        <Link to="/alltodos">
           <div className='text-2xl font-serif mx-5 px-2 py-2'>Todo</div>
         </Link>
       </div>
@@ -53,7 +53,7 @@ const Navbar = () => {
       <div className={`flex ${isMobile ? 'flex-col' : 'flex-row'} ${isMobile && !isMenuOpen ? 'hidden' : 'block'} w-full lg:w-auto`}>
         <Link
           to="/alltodos"
-          className={location.pathname === '/' ? 'text-yellow-500' : 'text-white'}
+          className={location.pathname === '/alltodos' ? 'text-yellow-500' : 'text-white'}
           onClick={() => isMobile && setIsMenuOpen(false)}
         >
           <div className='text-m font-serif mx-5 px-2 py-2'>All Todos</div>
@@ -74,7 +74,7 @@ const Navbar = () => {
         </Link>
         {!isLoggedIn && <Link
           to="/"
-          className={location.pathname === '/signin' ? 'text-yellow-500' : 'text-white'}
+          className={location.pathname === '/' ? 'text-yellow-500' : 'text-white'}
           onClick={() => isMobile && setIsMenuOpen(false)}
         >
           <div className='text-l font-serif mx-5 px-2 py-2'>Sign In</div>
