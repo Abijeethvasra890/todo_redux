@@ -6,9 +6,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { fetchTodosAsync } from '../redux/Slices/TodoSlice'
 
 const AllTodos = () => {
+  
   const dispatch = useDispatch();
-
-  // Fetch todos when the app component mounts
   useEffect(() => {
     dispatch(fetchTodosAsync());
   }, []);

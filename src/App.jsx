@@ -8,6 +8,7 @@ import PendingTodos from './Pages/PendingTodos'
 import Auth from './Components/Auth/Auth'
 import Register from './Components/Auth/Register'
 
+
 function App() {
 
   return (

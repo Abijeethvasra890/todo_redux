@@ -34,6 +34,7 @@ const Navbar = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const displayNamelocal = auth?.currentUser?.displayName;
   return (
     <div className='bg-black font-semibold italic text-white h-auto flex items-center justify-between'>
       <div className='flex items-center'>
@@ -81,7 +82,7 @@ const Navbar = () => {
         </Link>}
         {isLoggedIn &&
           <>
-            <div className='text-sm items-center justify-center font-serif mx-5 px-2 py-2'>Hi {auth?.currentUser?.email}</div>
+            <div className='text-sm items-center justify-center font-serif mx-5 px-2 py-2'>Hi {displayNamelocal? displayNamelocal: auth?.currentUser?.email}</div>
             <button
               className="bg-black hover:bg-neutral-700 text-white font-bold py-2 px-4 rounded w-28 items-center justify-center"
               onClick={handleSignOut}

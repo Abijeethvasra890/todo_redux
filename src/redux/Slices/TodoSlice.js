@@ -2,11 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { addTodoForUser, deleteTodoForUser, getTodosForUser, updateTodoForUser } from "../../Helpers/TodoData";
 import { auth } from "../../Firebase/firebase_config";
 
-const initialState = {
-    todos: [],
-    status: 'idle',
-    error: null,
-};
+
 
 export const fetchTodosAsync = () => async (dispatch) => {
     try {
@@ -63,6 +59,12 @@ export const toggleTodoCompleteAsync = (todoId, updatedTodoData) => async (dispa
     } catch (error) {
         dispatch(todoError(error.message));
     }
+};
+
+const initialState = {
+    todos: [],
+    status: 'idle',
+    error: null,
 };
 
 const TodoSlice = createSlice({

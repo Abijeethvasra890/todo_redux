@@ -1,11 +1,17 @@
 import {signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { auth, db, googleProvider } from '../../Firebase/firebase_config';
 import Navbar from '../Navbar/Navbar';
 import { doc, setDoc } from 'firebase/firestore';
 import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { fetchTodosAsync } from '../../redux/Slices/TodoSlice';
 
 const Auth = () => {
+    const dispatch = useDispatch();
+    useEffect(() => {
+      dispatch(fetchTodosAsync());
+    }, []);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 

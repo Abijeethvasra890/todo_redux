@@ -1,10 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
-import { addTodo, addTodoAsync } from '../../redux/Slices/TodoSlice';
-import { v4 as uuidv4 } from 'uuid';
-import { Firestore, doc, setDoc } from 'firebase/firestore';
-import { auth, db } from '../../Firebase/firebase_config';
-import firebase from 'firebase/compat/app';
+import { addTodoAsync } from '../../redux/Slices/TodoSlice';
+import { auth } from '../../Firebase/firebase_config';
 
 const AddTodo = () => {
    
@@ -36,7 +33,6 @@ const AddTodo = () => {
       if(auth.currentUser == null){
         alert("Please Sign in to Add Todos");
       }else{
-        const id = uuidv4();
         let complete  = false;
         const createdDate = new Date().toISOString().split('T')[0];
         dispatch(addTodoAsync({name, description, complete, dueDate, createdDate, priority }));
@@ -48,7 +44,7 @@ const AddTodo = () => {
     };
 
   return (
-    <div className='bg-slate-200 rounded bg-opacity-20 items-center flex flex-col w-10/12 md:mt-16 md:w-3/12 flex-wrap h-3/5 justify-center py-5 px-2 mx-5'>
+    <div className='bg-slate-200 rounded bg-opacity-20 items-center flex flex-col w-10/12 md:mt-20 md:w-3/12 flex-wrap h-3/5 justify-center py-5 px-2 mx-5'>
       <div className='flex flex-col'>
         <div className='flex flex-col items-center sm:flex-col md:flex-col gap-2'>
           <input
