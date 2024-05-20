@@ -42,14 +42,14 @@ const Auth = () => {
   return (
     <>
     <Navbar />
-    <div className='flex  py-28 items-center justify-center'
+    <div className='flex py-28 items-center justify-center'
         style={{
             backgroundImage: 'url(https://wallpapercave.com/wp/wp12426117.jpg)',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             minHeight:'100vh',
         }}>
-        <div className='flex flex-col justify-center items-center'> 
+        <div className='bg-slate-200 rounded bg-opacity-20 p-5 flex flex-col justify-center items-center'> 
             <h2 className="text-xl text-white font-bold mb-4">Sign In</h2>
             <input
                 className="py-3 px-4 w-9/12 md:w-80 border-2 border-gray-200 rounded-lg text-md mb-3"

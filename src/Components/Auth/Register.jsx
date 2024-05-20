@@ -32,7 +32,7 @@ const Register = () => {
             backgroundPosition: 'center',
             minHeight:'100vh',
         }}>
-        <div className='flex flex-col justify-center items-center'> 
+        <div className='bg-slate-200 rounded bg-opacity-20 p-5 flex flex-col justify-center items-center'> 
             <h2 className="text-xl text-white font-bold mb-4">Register</h2>
             <input
                 className="py-3 px-4 w-9/12 md:w-80 border-2 border-gray-200 rounded-lg text-md mb-3"

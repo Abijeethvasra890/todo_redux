@@ -36,7 +36,7 @@ const EditTodo = ({ todo }) => {
     dispatch(updateTodoAsync(todo.id,{ name: editedName, description: editedDescription, dueDate: editedDueDate }));
     setIsModalOpen(false);
   };
- 
+    const customOverlayClassName = 'fixed inset-0 bg-black bg-opacity-80';
   return (
     <>
       <button
@@ -49,41 +49,51 @@ const EditTodo = ({ todo }) => {
         isOpen={isModalOpen}
         onRequestClose={handleCloseModal}
         contentLabel="Edit Todo Modal"
-        className="bg-neutral-400 md:w-6/12 sm:w-full p-10 mx-auto my-10 flex flex-col items-center"
+        className="bg-neutral-800 md:w-6/12 sm:w-full p-10 mx-auto my-10 flex flex-col items-center"
+       overlayClassName={customOverlayClassName}
       >
-        <h2 className='text-xl font-semibold mb-10'>Edit Todo</h2>
-        <label>Todo Name: </label>
-        <input
-          type="text"
-          value={editedName}
-          onChange={handleNameChange}
-          className="py-3 m-2 md:w-64 sm:w-full px-4 border-2 border-gray-200 rounded-lg text-md"
-        />
-        <label>Todo Description: </label>
-        <textarea
-          value={editedDescription}
-          onChange={handleDescriptionChange}
-          className="py-3 m-2 md:w-64 sm:w-full px-4 border-2 border-gray-200 rounded-lg text-md"
-          rows={4}
-        />
-        <label>Todo Due Date: </label>
-        <input
-          type="date"
-          value={editedDueDate}
-          onChange={handleDueDateChange}
-          className="py-3 m-2 md:w-64 sm:w-full px-4 border-2 border-gray-200 rounded-lg text-md"
-        />
-
+        <h2 className='text-2xl font-semibold mb-10 text-amber-300'>Edit Todo</h2>
+        <div className='flex'>
+          <div>
+            <div className='flex flex-col'>
+              <label className='text-white'>Todo Name: </label>
+              <input
+                type="text"
+                value={editedName}
+                onChange={handleNameChange}
+                className="py-3 m-2 md:w-64 sm:w-full px-4 border-2 border-gray-200 rounded-lg text-md"
+              />
+            </div>
+            <div className='flex flex-col'>
+              <label className='text-white'>Todo Due Date: </label>
+              <input
+                type="date"
+                value={editedDueDate}
+                onChange={handleDueDateChange}
+                className="py-3 m-2 md:w-64 sm:w-full px-4 border-2 border-gray-200 rounded-lg text-md"
+              />
+            </div>
+          </div>
+          <div className='flex flex-col'>
+            <label className='text-white'>Todo Description: </label>
+            <textarea
+              value={editedDescription}
+              onChange={handleDescriptionChange}
+              className="py-3 m-2 md:w-64 sm:w-full px-4 border-2 border-gray-200 rounded-lg text-md"
+              rows={5}
+            />
+          </div>
+        </div>
         <div className="mt-4">
           <button
             onClick={handleSaveChanges}
-            className="bg-green-600 hover:bg-black text-white font-bold py-2 px-4 rounded mr-4"
+            className="bg-green-800 hover:bg-black text-white font-bold py-2 px-4 rounded mr-4"
           >
             Save Changes
           </button>
           <button
             onClick={handleCloseModal}
-            className="bg-red-600 hover:bg-black text-white font-bold py-2 px-4 rounded"
+            className="bg-red-800 hover:bg-black text-white font-bold py-2 px-4 rounded"
           >
             Cancel
           </button>

@@ -48,7 +48,7 @@ const AddTodo = () => {
     };
 
   return (
-    <div className='bg-slate-200 rounded bg-opacity-20 items-center flex flex-col w-10/12 md:mt-10 md:w-4/12 flex-wrap h-4/5 justify-center py-5 px-2 mx-5'>
+    <div className='bg-slate-200 rounded bg-opacity-20 items-center flex flex-col w-10/12 md:mt-16 md:w-3/12 flex-wrap h-3/5 justify-center py-5 px-2 mx-5'>
       <div className='flex flex-col'>
         <div className='flex flex-col items-center sm:flex-col md:flex-col gap-2'>
           <input
@@ -80,7 +80,7 @@ const AddTodo = () => {
             value={description}
             onChange={handleDescriptionChange}
             placeholder='Description'
-            className="py-3 px-3 w-full md:w-52 border-2 border-gray-200 rounded-lg text-md mt-5"
+            className="py-3 px-3 w-full md:w-52 border-2 border-gray-200 rounded-lg text-md mt-2"
             rows={4}
           />
         </div>
