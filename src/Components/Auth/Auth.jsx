@@ -4,14 +4,9 @@ import { auth, db, googleProvider } from '../../Firebase/firebase_config';
 import Navbar from '../Navbar/Navbar';
 import { doc, setDoc } from 'firebase/firestore';
 import { Link, useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { fetchTodosAsync } from '../../redux/Slices/TodoSlice';
 
 const Auth = () => {
-    const dispatch = useDispatch();
-    useEffect(() => {
-      dispatch(fetchTodosAsync());
-    }, []);
+    
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -69,18 +64,18 @@ const Auth = () => {
                 placeholder='Password'
                 onChange={(e)=>setPassword(e.target.value)}
             />
-            <div className='flex flex-col items-center'> 
-                <button 
-                    className="bg-neutral-600 hover:bg-neutral-700 text-white font-bold py-2 px-4 rounded w-56 mb-3 h-12"
-                    onClick={handleSignIn}>Sign In</button>
-                <button 
-                    className="flex items-center justify-center bg-neutral-600 hover:bg-neutral-700 text-white font-bold py-2 px-4 rounded w-56 mb-3"
-                    onClick={handleSignInGoogle}>
-                    <span>Sign In with</span>
-                    <img className='w-8 h-8 ml-2' src='https://static.vecteezy.com/system/resources/previews/013/760/951/original/colourful-google-logo-in-dark-background-free-vector.jpg' alt='Google Logo'/>
-                </button>
-                <p className='text-white'>Don't have a account? <Link to='/register'>Register Now</Link></p>
-            </div>
+           
+            <button 
+                className="bg-neutral-600 hover:bg-neutral-700 text-white font-bold py-2 px-4 rounded w-56 mb-3 h-12"
+                onClick={handleSignIn}>Sign In</button>
+            <button 
+                className="flex items-center justify-center bg-neutral-600 hover:bg-neutral-700 text-white font-bold py-2 px-4 rounded w-56 mb-3"
+                onClick={handleSignInGoogle}>
+                <span>Sign In with</span>
+                <img className='w-8 h-8 ml-2' src='https://static.vecteezy.com/system/resources/previews/013/760/951/original/colourful-google-logo-in-dark-background-free-vector.jpg' alt='Google Logo'/>
+            </button>
+            <p className='text-white'>Don't have a account? <Link to='/register'>Register Now</Link></p>
+           
         </div>
     </div>
     </>

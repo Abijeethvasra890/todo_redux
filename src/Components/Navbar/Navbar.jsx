@@ -15,6 +15,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const checkSignIn = auth.onAuthStateChanged((user) => {
+      //console.log(user);
       setIsLoggedIn(!!user);
     });
     return () => checkSignIn();

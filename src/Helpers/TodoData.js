@@ -1,4 +1,3 @@
-// Import necessary Firebase functions
 import { collection, addDoc, query, where, getDocs, updateDoc, deleteDoc, doc } from "firebase/firestore";
 import { db } from "../Firebase/firebase_config";
 

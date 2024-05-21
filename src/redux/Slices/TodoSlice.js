@@ -3,7 +3,6 @@ import { addTodoForUser, deleteTodoForUser, getTodosForUser, updateTodoForUser }
 import { auth } from "../../Firebase/firebase_config";
 
 
-
 export const fetchTodosAsync = () => async (dispatch) => {
     try {
         const userId = auth.currentUser.uid;
